@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care || Forgot Password</title>
+    <link rel="shortcut icon" href="../../home/image/logo.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('../../profile/image/bg-image.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .card {
+            background-color: rgb(255, 255, 255);
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            margin-bottom: 20px;
+            border-radius: 30px;
+        }
+        
+        .card input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid #ccc;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .card button[type="submit"] {
+            width: 100%;
+            background-color: #ad7522;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .card button[type="submit"]:hover {
+            background-color: #03b300;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="../../profile/image/forgot.jpg" alt="Card Image">
+        <h2>Enter your email</h2><hr>
+        <form action="forgot_pass_1.php" method="post">
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Enter your registered E-mail here" title="E-mail must be verified" required>
+            <button type="submit">SEND OTP</button>
+        </form>
+    </div>
+</body>
+</html>

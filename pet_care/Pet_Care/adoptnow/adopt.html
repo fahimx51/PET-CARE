@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../home/image/logo.png" type="image/x-icon">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        .form-container {
+            margin-top: 50px;
+            max-width: 600px;
+            margin-bottom: 50px;
+        }
+        .form-check-inline {
+            display: block;
+        }
+        .form-check-inline + .form-check-inline {
+            margin-left: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container form-container">
+    <h2 class="text-center">Pet Adoption Form</h2>
+
+    <form id="pet-adoption-form" action="submit-pet.php" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="petName">Pet Name</label>
+            <input type="text" class="form-control" id="petName" name="petName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="petType">Pet Type</label>
+            <select class="form-control" id="petType" name="petType" required>
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+                <option value="bird">Bird</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="breed">Breed</label>
+            <select class="form-control" id="breed" name="breed" required>
+                <!-- Options will be dynamically populated by JavaScript -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Vaccinated</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="vaccinated" id="vaccinatedYes" value="yes" required>
+                <label class="form-check-label" for="vaccinatedYes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="vaccinated" id="vaccinatedNo" value="no" required>
+                <label class="form-check-label" for="vaccinatedNo">No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Neutered/Spayed</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="neutered" id="neuteredYes" value="yes" required>
+                <label class="form-check-label" for="neuteredYes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="neutered" id="neuteredNo" value="no" required>
+                <label class="form-check-label" for="neuteredNo">No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Pet Age (in months)</label>
+            <select class="form-control" id="age" name="age" required>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="color">Color</label>
+            <input type="text" class="form-control" id="color" name="color" required>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" name="location" required>
+        </div>
+
+        <div class="form-group">
+            <label for="photo">Upload Photo</label>
+            <input type="file" class="form-control-file" id="photo" name="photo" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="form.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to retrieve email from URL parameter
+      function getEmailFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('email');
+      }
+
+      // Example usage: get user email and log to console
+      const userEmail = getEmailFromUrl();
+      console.log('User Email:', userEmail);
+
+      // Example: Display user email on the page
+      const emailDisplay = document.createElement('p');
+      emailDisplay.textContent = `User Email: ${userEmail}`;
+      document.body.appendChild(emailDisplay);
+    });
+  </script>
+  
+</body>
+</html>

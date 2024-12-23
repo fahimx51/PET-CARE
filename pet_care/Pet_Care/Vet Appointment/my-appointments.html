@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <link rel="shortcut icon" href="../home/image/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">My Appointments</h1>
+                <div id="appointmentsContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showAppointments() {
+            fetch('getAppointments.php')
+                .then(response => response.json())
+                .then(data => {
+                    const appointmentsContainer = document.getElementById('appointmentsContainer');
+                    if (data.length > 0) {
+                        const table = document.createElement('table');
+                        table.className = 'table table-striped';
+
+                        const headerRow = table.createTHead().insertRow(0);
+                        for (const key in data[0]) {
+                            const th = document.createElement('th');
+                            th.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+                            headerRow.appendChild(th);
+                        }
+                        headerRow.insertCell().textContent = 'Actions'; // Add Actions column header
+
+                        const tbody = table.createTBody();
+                        data.forEach(appointment => {
+                            const row = tbody.insertRow();
+                            for (const key in appointment) {
+                                const cell = row.insertCell();
+                                cell.textContent = appointment[key];
+                            }
+                            const actionCell = row.insertCell(); // Create cell for action button
+                            if (appointment.status === 'Approved') {
+                                actionCell.textContent = 'Disabled'; // Display "Disabled" if appointment is approved
+                            } else {
+                                const deleteButton = document.createElement('button');
+                                deleteButton.textContent = 'Delete';
+                                deleteButton.classList.add('btn', 'btn-danger');
+                                deleteButton.onclick = function() {
+                                    deleteAppointment(appointment.id); // Pass appointment ID to delete function
+                                };
+                                actionCell.appendChild(deleteButton);
+                            }
+                        });
+
+                        
+                        appointmentsContainer.appendChild(table);
+                    } else {
+                        appointmentsContainer.innerHTML = '<h3>No Appointments</h3>';
+                    }
+                })
+                .catch(error => console.error('Error fetching appointments:', error));
+        }
+
+        function deleteAppointment(appointmentId) {
+            fetch('deleteAppointment.php?id=' + appointmentId, {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Reload appointments after deletion
+                        showAppointments();
+                    } else {
+                        console.error('Error deleting appointment');
+                    }
+                })
+                .catch(error => console.error('Error deleting appointment:', error));
+        }
+
+        // Load appointments when the page loads
+        showAppointments();
+    </script>
+</body>
+</html>

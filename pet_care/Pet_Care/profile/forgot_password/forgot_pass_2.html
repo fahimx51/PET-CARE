@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care || Enter Verification Code</title>
+    <link rel="shortcut icon" href="../../home/image/logo.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('../../profile/image/bg-image.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            margin-bottom: 20px;
+            border-radius: 30px;
+        }
+        
+        .otp-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-radius: 50px;
+        }
+        .otp-inputs input[type="text"] {
+            width: calc(100% / 6 - 5px);
+            padding: 10px;
+            border: 1px solid #060606;
+            border-radius: 50px;
+            box-sizing: border-box;
+            text-align: center; 
+            font-size: 16px;
+        }
+        
+        .card button {
+            width: 100%;
+            background-color: #a96f1d;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background-color: #48b300;
+            color: black;
+        }
+
+        .resend {
+            width: 100%;
+            background-color: #a96f1d;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .resend:hover {
+            background-color: #48b300;
+            color: black;
+        }
+
+        .timer {
+            font-family: 'Arial', sans-serif;
+            font-size: 15px;
+            color: #333;
+            background-color: #f9f9f9;
+            border: 2px solid #000000;
+            border-radius: 30px;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: auto;
+            min-width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="../../profile/image/code.png" alt="Card Image">
+        <h4>Enter the 6-digit verification code sent to your email:</h4>
+        <form action="forgot_pass_2.php" method="post">
+            <div class="otp-inputs">
+                <input type="text" id="digit1" name="digit1" maxlength="1" pattern="\d" required>
+                <input type="text" id="digit2" name="digit2" maxlength="1" pattern="\d" required>
+                <input type="text" id="digit3" name="digit3" maxlength="1" pattern="\d" required>
+                <input type="text" id="digit4" name="digit4" maxlength="1" pattern="\d" required>
+                <input type="text" id="digit5" name="digit5" maxlength="1" pattern="\d" required>
+                <input type="text" id="digit6" name="digit6" maxlength="1" pattern="\d" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+
+        <p class="timer" id="countdownTimer"></p>
+        <button class="resend" id="resendButton" onclick="resendVerificationCode()">Resend Code</button>
+
+        <script>
+            function updateCountdown() {
+                var countdownElement = document.getElementById("countdownTimer");
+                var countdown = 180; // 3 minutes in seconds
+                var interval = setInterval(function() {
+                    var minutes = Math.floor(countdown / 60);
+                    var seconds = countdown % 60;
+                    countdownElement.textContent = "Resend code in: " + minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+                    countdown--;
+
+                    if (countdown < 0) {
+                        clearInterval(interval);
+                        countdownElement.textContent = "";
+                        document.getElementById("resendButton").style.display = "block";
+                    }
+                }, 1000);
+            }
+
+            function resendVerificationCode() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "resend_verification_code.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        alert(xhr.responseText);
+                        updateCountdown();
+                    } else {
+                        alert("Error: " + xhr.status);
+                    }
+                };
+                xhr.send();
+            }
+
+            window.onload = function() {
+                updateCountdown();
+            };
+        </script>
+    </div>
+</body>
+</html>

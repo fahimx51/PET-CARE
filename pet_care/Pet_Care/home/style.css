@@ -1,0 +1,414 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  background-color: whitesmoke;
+}
+
+span {
+  color: #fa7705;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(35, 39, 50);
+  color: white;
+  font-size: 1.3rem;
+  height: 75px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 0;
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+.logo i {
+  position: absolute;
+  top: 81%;
+  left: 1%;
+  transform: translate(-1%, -99%);
+}
+
+.logo .logo-text {
+  position: absolute;
+  top: 40%;
+  left: 3.5%;
+}
+
+/* nav */
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin-right: 40px;
+}
+
+.nav-menu li {
+  margin-right: 15px;
+  position: relative;
+}
+
+.nav-menu li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px;
+  transition: color 1s ease;
+  white-space: nowrap;
+}
+
+.nav-menu li a:hover {
+  color: #bbf3d9;
+}
+
+.nav-submenu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 7px;
+  margin-top: 15px;
+  font-size: 16px;
+  border-radius: 30px;
+  z-index: 999;
+  white-space: nowrap;
+}
+
+.nav-menu li:hover .nav-submenu {
+  display: block;
+}
+
+.nav-submenu li {
+  margin: 5px 0;
+}
+
+.nav-submenu li a {
+  color: #333;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: color 1s ease;
+  display: block;
+}
+
+.nav-submenu li a:hover {
+  color: #f47728;
+  background-color: #94dbac;
+  border: 1px solid #0c0c0c;
+  border-radius: 15px;
+}
+
+.nav-submenu {
+  position: absolute;
+  top: 60%;
+  right: 0;
+  z-index: 999;
+  background-color: #fff;
+  padding: 5px;
+  border: 5px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.nav-submenu li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-submenu li a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.shop {
+  position: absolute;
+  top: 0.5rem;
+  right: 7.5rem;
+  padding: 0.5rem;
+}
+
+.profile-a {
+  position: absolute;
+  top: 0.5rem;
+  right: 3.8rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.profile-a img {
+  width: 50px;
+  height: 50px;
+}
+
+.menu-container:hover .nav-submenu {
+  display: block;
+}
+
+.menu-icon {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.5rem;
+  padding: 0.5rem;
+}
+
+.menu-icon img {
+  width: 40px;
+  height: 40px;
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+.home {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: url(../home/image/pet1.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.home-content {
+  max-width: 600px;
+}
+
+.home-content h1 {
+  font-size: 2.5rem;
+  color: #040404;
+  padding-bottom: 1rem;
+  margin-left: 20px;
+}
+
+.home-content p {
+  color: #fffdfd;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-left: 20px;
+}
+
+.container {
+  background: #000;
+  padding-top: 1.5px;
+  padding-bottom: 1.5px;
+  color: #fffdfd;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* Our Service & Discover Our Team */
+.our-service {
+  background-color: #def3dc;
+}
+
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  width: 220px;
+  height: 250px;
+  background-color: #f86503;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  margin: 10px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.image {
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+.image img {
+  width: 80px;
+  height: 80px;
+  margin: 20px auto;
+}
+
+.content {
+  text-align: center;
+}
+
+.amount {
+  font-size: 12px;
+  color: #141212;
+  margin-top: 5px;
+}
+
+/* Importance of Healthy Food & GENERAL PET CARE*/
+.about {
+  display: flex;
+  align-items: center;
+  flex-wrap: warp;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  .image img {
+    width: 50%;
+    height: 50%;
+    margin-left: 50px;
+  }
+}
+.con {
+  margin: 20px;
+  padding: 10px;
+  a {
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    color: black;
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: rgb(2, 2, 2);
+    padding: 2rem 0;
+    line-height: 2;
+  }
+}
+
+/* Pet Food */
+.pet-food {
+  background-color: #fd7b01;
+}
+
+.box-con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box-f {
+  width: 300px;
+  height: 300px;
+  background-color: #fafafa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  margin: 10px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.s {
+  margin: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Button */
+.btn {
+  background-color: rgb(80, 80, 80);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.btn:hover {
+  background-color: #c54b00;
+}
+.ab {
+  margin: 10px;
+  border-radius: 50px;
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.footer {
+  width: 100%;
+  background: #000000;
+  border-radius: 5px;
+}
+
+.footer .footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3.5rem;
+  padding: 60px;
+}
+
+.footer-row .footer-col h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.footer-col .links {
+  margin-top: 20px;
+}
+
+.footer-col .links li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.footer-col .links li a {
+  text-decoration: none;
+  color: #bfbfbf;
+}
+
+.footer-col .links li a:hover {
+  color: #fff;
+}
+
+.footer-col p {
+  margin: 20px 0;
+  color: #bfbfbf;
+  max-width: 300px;
+}
+
+footer {
+  background-color: #3a2828;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #f3eded;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+[hidden]:not([hidden="until-found"]) {
+  display: none !important;
+}
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");

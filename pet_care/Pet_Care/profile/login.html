@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care || Login</title>
+    <link rel="shortcut icon" href="../home/image/logo.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+                <div class="card justify-content-center mt-5 mb-3" style="border-radius: 30px;">
+                    <h2 class="justify-content-center text-center text-dark btn-warning p-2" style="border-top-left-radius: 30px; border-top-right-radius: 30px;">Login Form</h2>
+                    
+                    <form id="loginForm" method="post" action="session.php">
+                        <img src="../profile/image/login.gif" alt="Login Image" class="login-image">
+                        <div class="card p-3 mb-4 mx-lg-4 px-lg-4" style="border-radius: 30px;">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" style="border-radius: 30px;" title="Enter Your Registered E-mail. If you don't have account click Register button." placeholder="Enter your E-mail:" id="email" name="email" required>
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" style="border-radius: 30px;" placeholder="Enter your Password:" id="password" name="password" required>
+                            <button type="submit" class="btn btn-warning mb-2 mt-3" style="border-radius: 30px;" name="login">Login</button>
+                        </form><hr>
+                        <p>Don't have an account? <b><a href="index.html">Register</a></b> here.<br> Forgot your password? <b><a href="../profile/forgot_password/forgot_pass.html">Forgot Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

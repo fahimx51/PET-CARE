@@ -1,0 +1,49 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    background: url(../home/image/pet1.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+strong{
+    font-size: 1.3rem;
+}
+main {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+h1, h2, h3, h4 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 500px;
+    height: 300px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ol {
+    list-style-type: disc;
+    margin-bottom: 20px;
+}
+
+li{
+    margin: 10px;
+}

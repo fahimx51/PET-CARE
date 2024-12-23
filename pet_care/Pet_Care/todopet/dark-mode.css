@@ -1,0 +1,25 @@
+body.dark-mode {
+    background: #1e1e1e url('path/to/petsit.jpg') center/cover no-repeat;
+    color: #fff;
+}
+
+.task-box .task {
+    color: #fff;
+}
+
+.task-box .task label p {
+    color: #fff;
+}
+
+.task label p.checked {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-box {
+    background-color: #333;
+}
+
+.task-box::-webkit-scrollbar-thumb {
+    background: #fff;
+}

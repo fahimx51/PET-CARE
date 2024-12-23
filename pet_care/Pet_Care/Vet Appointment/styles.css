@@ -1,0 +1,44 @@
+body {
+    background-image: url('assets/vetapp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.panel-primary {
+    border-color: #337ab7;
+}
+
+.panel-heading {
+    background-color: #337ab7;
+    color: #fff;
+}
+
+.panel-footer {
+    background-color: #337ab7;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+
+
+
+

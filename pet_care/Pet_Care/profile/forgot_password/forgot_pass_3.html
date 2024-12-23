@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Care || Update Password</title>
+    <link rel="shortcut icon" href="../home/image/logo.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('../../profile/image/bg-image.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center; 
+        }
+        .card img {
+            max-width: 100%;
+            margin-bottom: 20px;
+            border-radius: 50px;
+        }
+        .card label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            border-radius: 30px;
+        }
+        .card input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .card span {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .card button[type="submit"] {
+            width: 100%;
+            background-color: #896719;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .card button[type="submit"]:hover {
+            background-color: #30b300;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="../../profile/image/set_new_pass.png" alt="Card Image">
+        <h2>Update Password</h2><hr>
+        <form id="updatePasswordForm" action="forgot_pass_3.php" method="post">
+            <label for="new_password">Enter new password:</label><br>
+            <input type="password" id="new_password" name="new_password" required placeholder="Enter new Password" title="Password should contain at least one number, one uppercase letter, one lowercase letter, one special character, and be 8-20 characters long."><br>
+            <span id="password-error" style="color: red;"></span><br>
+            <button type="submit">Update Password</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to validate password
+        function validatePassword() {
+            var passwordField = document.getElementById("new_password");
+            var passwordErrorMessage = document.getElementById("password-error");
+
+            if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,20}$/.test(passwordField.value)) {
+                passwordErrorMessage.innerHTML = "Password should contain at least one number, one uppercase letter, one lowercase letter, one special character, and be 8-20 characters long.";
+                return false;
+            } else {
+                passwordErrorMessage.innerHTML = "";
+                return true;
+            }
+        }
+
+        // Event listener for form submission
+        document.getElementById("updatePasswordForm").addEventListener("submit", function(event) {
+            if (!validatePassword()) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url(../home/image/pet1.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgb(35, 39, 50);
+  color: #fff;
+  text-align: center;
+}
+
+
+.h {
+  color: white;
+}
+
+section {
+  max-width: 900px;
+  margin: 150px auto;
+  padding: 20px;
+  background-color: #fffefe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+
+.t {
+  text-align: center;
+}
+
+
+h2,h3,p {
+  color: #333;
+}
+
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input,textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #c2b9b9;
+  border-radius: 30px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-card {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.card {
+  width: 25%;
+  padding: 20px;
+  margin: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  text-align: center;
+}

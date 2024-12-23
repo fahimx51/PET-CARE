@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="shortcut icon" href="../home/image/logo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-center">
+                        <h1>Appointment Registration Form</h1>
+                    </div>
+                    <div class="panel-body">
+                        <form action="connect.php" method="post" onsubmit="return submitForm(this);">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" class="form-control" id="username" name="username" required pattern="[A-Za-z0-9]+" title="Only letters and numbers are allowed" />
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentDate">Appointment Date</label>
+                                <input type="date" class="form-control" id="appointmentDate" name="appointmentDate" required min="<?php echo date('Y-m-d'); ?>" oninput="validateDate()" />
+
+
+                           
+                            </div>
+                            <div class="form-group">
+                                <label for="petType">Pet Type</label>
+                                <select class="form-control" id="petType" name="petType" required>
+                                  <option value="cat">Cat</option>
+                                  <option value="dog">Dog</option>
+                                  <option value="bird">Bird</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Appointment Time</label>
+                                <select class="form-control" id="appointmentTime" name="appointmentTime" required>
+                                    <option value="10:00">10:00 AM - 11:00 AM</option>
+                                    <option value="11:00">11:00 AM - 12:00 PM</option>
+                                    <option value="12:00">12:00 PM - 1:00 PM</option>
+                                    <option value="13:00">1:00 PM - 2:00 PM</option>
+                                    <option value="14:00">2:00 PM - 3:00 PM</option>
+                                    <option value="15:00">3:00 PM - 4:00 PM</option>
+                                </select>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="numberOfPets">Number of Pets</label>
+                                <input type="number" class="form-control" id="numberOfPets" name="numberOfPets" required max="3" />
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required pattern="0[0-9]{10}" title="Must start with 0 and have 11 digits" />
+                            </div>
+                            <input type="submit" class="btn btn-primary" value="Submit" />
+                            <button class="btn btn-secondary" onclick="showAppointments()">My Appointments</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+
+    <script>
+        function validateDate() {
+            const selectedDate = new Date(document.getElementById('appointmentDate').value);
+            const today = new Date();
+            const dayOfWeek = selectedDate.getDay();
+
+            if (selectedDate < today || dayOfWeek === 5 || dayOfWeek === 6) {
+                alert('Please choose a future date (excluding Fridays and Saturdays).');
+                document.getElementById('appointmentDate').value = '';
+            }
+        }
+       
+        function validateSlotAvailability(slot) {
+           
+            const takenSlots = ['10:00-11:00', '14:00-15:00'];
+            return !takenSlots.includes(slot);
+        }
+
+        function submitForm(form) {
+            if (!form.checkValidity()) {
+                return false;
+            }
+
+            const selectedDate = new Date(document.getElementById('appointmentDate').value);
+            const selectedTime = document.getElementById('appointmentTime').value;
+            const slot = `${selectedTime}-${selectedTime.split(':')[0] + 1}:00`;
+
+            if (!validateSlotAvailability(slot)) {
+                alert('Slot already taken. Please choose another slot.');
+                return false;
+            }
+
+           
+        }
+
+
+        function submitForm(form) {
+            if (!form.checkValidity()) {
+                return false;
+            }
+            return true;
+        }
+
+        function showAppointments() {
+            window.location.href = 'my-appointments.html';
+        }
+    </script>
+</body>
+</html>
+
+
+
